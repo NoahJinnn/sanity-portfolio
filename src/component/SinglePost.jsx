@@ -35,7 +35,7 @@ export default function SinglePost() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [slug]);
 
   if (!singlePost) return <WaitingMark />;
 
