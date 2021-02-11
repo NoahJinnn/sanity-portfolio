@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { SocialIcon } from "react-social-icons";
+// import { SocialIcon } from "react-social-icons";
 import CoffeeSmug from "./svg-component/CoffeeSmug";
 
 export default function NavBar() {
