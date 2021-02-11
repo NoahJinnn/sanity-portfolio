@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../contentClient";
 import BlockContent from "@sanity/block-content-to-react";
+import WaitingMark from "./WaitingMark";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -36,7 +37,7 @@ export default function SinglePost() {
       });
   }, []);
 
-  if (!singlePost) return <div>Loading...</div>;
+  if (!singlePost) return <WaitingMark />;
 
   return (
     <main className="bg-gray-200 min-h-screen p-12">

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from "../contentClient";
 import BlockContent from "@sanity/block-content-to-react";
+import stationImg from "../asset/station.jpg";
+import WaitingMark from "./WaitingMark";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -25,26 +27,27 @@ export default function About() {
       });
   }, []);
 
-  if (!author) return <div>Loading...</div>;
+  if (!author) return <WaitingMark />;
 
   return (
     <main className="relative">
-      <img src="" alt="" className="absolute w-full" />
+      <img
+        src={stationImg}
+        alt="A big warm station"
+        className="absolute w-full"
+      />
       <div className="p-10 lg:pt-48 container mx-auto relative">
-        <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
-          <img
-            src={urlFor(author?.authorImage).url()}
-            alt={author.name}
-            className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
-          />
-          <div className="text-lg flex flex-col justify-center">
-            <h1 className="cursive text-6xl text-green-300 mb-4">
-              Hey there. I'm{" "}
-              <span className="text-green-100">{author.name}</span>
+        <section className="rounded-lg shadow-2xl lg:flex p-20">
+          <div className="about-overlay" />
+          <div className="text-lg flex flex-col justify-center z-10">
+            <h1 className="cursive text-6xl text-yellow-100 mb-4">
+              Hey there. I am
+              <br />
+              <span className="text-gray-100">{author.name}</span>
             </h1>
             <div className="prose lg:prose-xl text-white">
               <BlockContent
-                blocks={author.body}
+                blocks={author.bio}
                 projectId="d4cqphsq"
                 dataset="production"
               />

@@ -1,0 +1,45 @@
+.cursive {
+  font-family: "Amatic SC", cursive;
+}
+
+.prose img {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+.home-name {
+  font-size: 150px;
+}
+
+.about-overlay {
+  position: absolute;
+  width: 615px;
+  height: 330px;
+  background-color: #000a;
+  left: 160px;
+}
+
+.coffee-icon {
+  height: 72px;
+  width: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid;
+  border-color: rgba(253, 230, 138, 50);
+
+  &:hover {
+    background-color: #79501833;
+  }
+}
+
+.nav-black {
+  &-bg {
+    background-color: rgba(10, 10, 10, 1);
+  }
+  &-text {
+    color: rgba(10, 10, 10, 1);
+  }
+}
