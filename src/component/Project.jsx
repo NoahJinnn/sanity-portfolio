@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import sanityClient from "../contentClient";
 import WaitingMark from "./WaitingMark";
 
 export default function Project() {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState(null);
   useEffect(() => {
     sanityClient
@@ -30,7 +32,7 @@ export default function Project() {
       <section className="container mx-auto">
         <h1 className="text-4xl flex justify-center cursive">Projects</h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-          Welcome to my projects
+          {t("welcome.project")}
         </h2>
         <section className="grid grid-cols-2 gap-8">
           {projects.map((project, index) => (

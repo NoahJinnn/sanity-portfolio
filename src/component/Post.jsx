@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import sanityClient from "../contentClient";
 import WaitingMark from "./WaitingMark";
 
 export default function Post() {
+  const { t } = useTranslation();
   const [posts, setPosts] = useState(null);
   useEffect(() => {
     sanityClient
@@ -33,7 +35,7 @@ export default function Post() {
       <section className="container mx-auto">
         <h1 className="text-5xl flex justify-center cursive">Blog Posts</h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-          Welcome to my blog posts
+          {t("welcome.blog")}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {posts.map((post, index) => (

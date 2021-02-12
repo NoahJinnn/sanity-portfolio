@@ -6,6 +6,7 @@ import SinglePost from "./component/SinglePost";
 import Post from "./component/Post";
 import Project from "./component/Project";
 import NavBar from "./component/NavBar";
+import ContactMe from "./component/ContactMe";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/project">
             <Project />
+          </Route>
+          <Route path="/contact">
+            <ContactMe />
           </Route>
         </Switch>
       </BrowserRouter>
