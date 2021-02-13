@@ -28,16 +28,22 @@ export default function About() {
       <img
         src={stationImg}
         alt="A big warm station"
-        className="absolute w-full"
+        className="absolute w-full h-full hidden md:block"
+        style={{ zIndex: -2 }}
       />
       <div className="p-10 lg:pt-48 container mx-auto relative">
-        <section className="rounded-lg shadow-2xl lg:flex p-20">
-          <div className="about-overlay" />
-          <div className="text-lg flex flex-col justify-center z-10">
-            <h1 className="cursive text-6xl text-yellow-100 mb-4">
+        <section className="rounded-lg shadow-2xl lg:flex md:p-20">
+          <div
+            className="about-overlay hidden md:block"
+            style={{ zIndex: -1 }}
+          />
+          <div className="text-lg flex flex-col justify-center">
+            <h1 className="cursive text-6xl text-yellow-300 md:text-yellow-100 mb-4">
               Hey there. I am
               <br />
-              <span className="text-gray-100">{author.name}</span>
+              <span className="text-gray-900 md:text-gray-100">
+                {author.name}
+              </span>
             </h1>
             <div className="prose lg:prose-xl text-white">
               <BlockContent

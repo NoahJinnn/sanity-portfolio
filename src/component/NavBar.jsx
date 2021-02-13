@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import NavCollection from "./NavCollection";
+import NavMenu from "./NavMenu";
 import CoffeeSmug from "./svg-component/CoffeeSmug";
 
 export default function NavBar() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [lang, setLang] = useState("vi");
   const changeLang = (langKey) => () => {
     i18n.changeLanguage(langKey);
@@ -12,7 +14,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className="nav-black-bg">
+    <header className="nav-black-bg" style={{ fontSize: "0.8rem" }}>
       <div className="container mx-auto flex justify-between">
         <nav className="flex">
           <NavLink
@@ -22,39 +24,14 @@ export default function NavBar() {
           >
             <CoffeeSmug />
           </NavLink>
-          <NavLink
-            to="/post"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-gray-200 hover:text-yellow-200"
-            activeClassName="text-gray-100 font-bold"
-          >
-            {t("navBlog")}
-          </NavLink>
-          <NavLink
-            to="/project"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-gray-200 hover:text-yellow-200"
-            activeClassName="text-gray-100 font-bold"
-          >
-            {t("navProject")}
-          </NavLink>
-          <NavLink
-            to="/about"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-gray-200 hover:text-yellow-200"
-            activeClassName="text-gray-100 font-bold"
-          >
-            {t("navAbout")}
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className="inline-flex items-center py-3 px-3 my-6 rounded text-gray-200 hover:text-yellow-200"
-            activeClassName="text-gray-100 font-bold"
-          >
-            {t("navContact")}
-          </NavLink>
+          <div className="hidden md:flex md:my-6  ">
+            <NavCollection />
+          </div>
         </nav>
-        <div className="text-gray-200 cursor-pointer inline-flex px-3 py-3 my-6">
+        <div className="text-gray-200 cursor-pointer inline-flex px-3 py-3 my-6 flex items-center">
           <span
             className={`mr-3 hover:text-yellow-200 ${
-              lang === "en" ? "text-yellow-200" : null
+              lang === "en" ? "font-bold" : null
             }`}
             onClick={changeLang("en")}
           >
@@ -62,12 +39,13 @@ export default function NavBar() {
           </span>
           <span
             className={`hover:text-yellow-200 ${
-              lang === "vi" ? "text-yellow-200" : null
+              lang === "vi" ? "font-bold" : null
             }`}
             onClick={changeLang("vi")}
           >
             Tiếng Việt
           </span>
+          <NavMenu />
         </div>
       </div>
     </header>
