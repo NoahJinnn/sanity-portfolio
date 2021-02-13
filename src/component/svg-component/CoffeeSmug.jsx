@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export default function CoffeeSmug() {
   return (
@@ -12,8 +12,7 @@ export default function CoffeeSmug() {
         fill="mintcream"
         stroke="mintcream"
         marginBottom="12px"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+        xmlns="http://www.w3.org/2000/svg">
         <g id="XMLID_1039_">
           <g id="XMLID_142_">
             <path
@@ -40,5 +39,5 @@ export default function CoffeeSmug() {
         </g>
       </svg>
     </div>
-  );
+  )
 }

@@ -11,6 +11,7 @@ const blogPage = {
 
 const projectPage = {
   "welcome.project": "Các dự án của tớ",
+  viewProject: "Xem",
 };
 
 const aboutPage = {

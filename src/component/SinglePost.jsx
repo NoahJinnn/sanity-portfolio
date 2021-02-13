@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import imageUrlBuilder from "@sanity/image-url";
-import sanityClient from "../contentClient";
-import BlockContent from "@sanity/block-content-to-react";
-import WaitingMark from "./WaitingMark";
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import imageUrlBuilder from '@sanity/image-url'
+import sanityClient from '../contentClient'
+import BlockContent from '@sanity/block-content-to-react'
+import WaitingMark from './WaitingMark'
 
-const builder = imageUrlBuilder(sanityClient);
+const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
-  return builder.image(source);
+  return builder.image(source)
 }
 
 export default function SinglePost() {
-  const [singlePost, setSinglePost] = useState(null);
-  const { slug } = useParams();
+  const [singlePost, setSinglePost] = useState(null)
+  const { slug } = useParams()
   useEffect(() => {
     sanityClient
       .fetch(
@@ -29,52 +29,40 @@ export default function SinglePost() {
             body,
             "name": author->name,
             "authorImage": author->image
-        }`
+        }`,
       )
       .then((data) => setSinglePost(data[0]))
       .catch((err) => {
-        console.log(err);
-      });
-  }, [slug]);
+        console.log(err)
+      })
+  }, [slug])
 
-  if (!singlePost) return <WaitingMark />;
+  if (!singlePost) return <WaitingMark />
 
   return (
-    <main className="bg-gray-200 min-h-screen p-12">
-      <article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
+    <main className="bg-gray-200 min-h-screen md:p-8">
+      <article className="container shadow-lg mx-auto bg-gray-900 md:rounded-lg">
         <header className="relative">
-          <div className="absolute h-full w-full flex items-center justify-center p-8">
-            <div className="bg-white bg-opacity-75 rounded p-12">
-              <h1 className="cursive text-3xl lg:text-6xl mb-4">
-                {singlePost.title}
-              </h1>
+          <div className="absolute h-full w-full flex items-center justify-center p-1 md:p-8">
+            <div className="bg-white bg-opacity-75 md:rounded p-2 md:p-12">
+              <h1 className="cursive text-3xl lg:text-6xl mb-4">{singlePost.title}</h1>
               <div className="flex justify-center text-gray-800">
-                <img
-                  src={urlFor(singlePost.authorImage).url()}
-                  alt={singlePost.name}
-                  className="w-10 h-10 rounded-full"
-                />
-                <p className="cursive flex items-center pl-2 text-2xl">
-                  {singlePost.name}
-                </p>
+                <img src={urlFor(singlePost.authorImage).url()} alt={singlePost.name} className="w-10 h-10 md:rounded-full" />
+                <p className="cursive flex items-center pl-2 text-xl md:text-2xl">{singlePost.name}</p>
               </div>
             </div>
           </div>
           <img
             src={singlePost.mainImage.asset.url}
             alt={singlePost.title}
-            className="w-full object-cover rounded-t"
-            style={{ height: "400px" }}
+            className="w-full object-cover md:rounded-t"
+            style={{ height: '400px' }}
           />
         </header>
-        <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
-          <BlockContent
-            blocks={singlePost.body}
-            projectId="d4cqphsq"
-            dataset="production"
-          />
+        <div className="px-2 md:px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full text-gray-100">
+          <BlockContent blocks={singlePost.body} projectId="d4cqphsq" dataset="production" />
         </div>
       </article>
     </main>
-  );
+  )
 }

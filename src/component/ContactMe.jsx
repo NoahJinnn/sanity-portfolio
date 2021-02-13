@@ -1,9 +1,9 @@
-import React from "react";
-import { SocialIcon } from "react-social-icons";
+import React from 'react'
+import { SocialIcon } from 'react-social-icons'
 
 export default function ContactMe() {
   return (
-    <div className="absolute" style={{ top: "40%", right: "40%" }}>
+    <div className="absolute flex justify-center" style={{ top: '40%', width: '100vw' }}>
       <SocialIcon
         url="https://www.linkedin.com/in/tcdnguyen/"
         className="mr-4"
@@ -26,5 +26,5 @@ export default function ContactMe() {
         style={{ height: 35, width: 35 }}
       />
     </div>
-  );
+  )
 }

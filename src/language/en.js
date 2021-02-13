@@ -11,6 +11,7 @@ const blogPage = {
 
 const projectPage = {
   "welcome.project": "Welcome to my projects",
+  viewProject: "View project",
 };
 
 const aboutPage = {
