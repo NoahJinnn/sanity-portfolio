@@ -3,7 +3,7 @@ import { SocialIcon } from 'react-social-icons'
 
 export default function ContactMe() {
   return (
-    <div className="absolute flex justify-center" style={{ top: '40%', width: '100vw' }}>
+    <div className="absolute flex justify-center items-center" style={{ width: '100vw', height: '70vh' }}>
       <SocialIcon
         url="https://www.linkedin.com/in/tcdnguyen/"
         className="mr-4"
