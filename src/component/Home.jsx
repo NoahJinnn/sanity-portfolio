@@ -7,7 +7,7 @@ export default function Home() {
       <picture className="absolute h-100 w-100">
         <img
           src={mugImg}
-          alt="This is an awesome image"
+          alt="This is a swarm smug"
           className="home-page-image"
         />
       </picture>
