@@ -25,11 +25,10 @@ export default function About() {
 
   return (
     <main className="relative">
-      <img src={stationImg} alt="A big warm station" className="absolute w-full h-full hidden md:block" style={{ zIndex: -2 }} />
-      <div className="p-4 md:p-10 lg:pt-48 container mx-auto relative">
-        <section className="rounded-lg shadow-2xl lg:flex md:p-20">
-          <div className="about-overlay hidden md:block" style={{ zIndex: -1 }} />
-          <div className="text-lg flex flex-col justify-center bg-gray-800 md:bg-opacity-0 p-2">
+      <img src={stationImg} alt="A big warm station" className="absolute w-full h-full hidden md:block" />
+      <div className="p-4 md:p-8 lg:pt-48 container mx-auto relative">
+        <section className="rounded-lg shadow-2xl lg:flex md:p-8 lg:p-20">
+          <div className="text-lg flex flex-col justify-center bg-gray-800 md:bg-gray-900 md:bg-opacity-60 p-2">
             <h1 className="cursive text-3xl md:text-6xl text-yellow-100 mb-4">
               Hey there. I am
               <br />

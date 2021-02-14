@@ -21,14 +21,6 @@
   font-size: 150px;
 }
 
-.about-overlay {
-  position: absolute;
-  width: 615px;
-  height: 330px;
-  background-color: #000a;
-  left: 12%;
-}
-
 .coffee-icon {
   height: 72px;
   width: 72px;
@@ -58,10 +50,6 @@
     object-fit: cover;
     height: 1024px;
     object-position: 60% 50%;
-  }
-
-  .about-overlay {
-    top: 32%;
   }
 }
 
